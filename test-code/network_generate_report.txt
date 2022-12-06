@@ -1,0 +1,245 @@
+Neural Network Tools for STM32AI v1.6.0 (STM.ai v7.2.0-RC5)
+Created date          : 2022-12-05 18:27:20
+Parameters            : generate --name network -m C:/Users/yasin/Documents/ICCAD_Submission/submission_1d/IEGM_net_Sf1bz256lr0.01.onnx --type onnx --compression none --verbosity 1 --workspace C:\Users\yasin\AppData\Local\Temp\mxAI_workspace2863431290594007633059831286211036 --output C:\Users\yasin\.stm32cubemx\network_output --allocate-inputs --allocate-outputs
+
+Exec/report summary (generate)
+------------------------------------------------------------------------------------------------------------------------
+model file            : C:\Users\yasin\Documents\ICCAD_Submission\submission_1d\IEGM_net_Sf1bz256lr0.01.onnx
+type                  : onnx
+c_name                : network
+compression           : none
+allocator strategy    : ['allocate-inputs', 'allocate-outputs']
+workspace dir         : C:\Users\yasin\AppData\Local\Temp\mxAI_workspace2863431290594007633059831286211036
+output dir            : C:\Users\yasin\.stm32cubemx\network_output
+model_name            : IEGM_net_Sf1bz256lr0_01
+model_hash            : 8128ba8c9e9a7cfdde182ab262568034
+input 1/1             : 'input_1'
+                        1250 items, 4.88 KiB, ai_float, float, (1,1250,1,1), domain:activations/**default**
+output 1/1            : 'node_55'
+                        2 items, 8 B, ai_float, float, (1,1,1,2), domain:activations/**default**
+params #              : 1,534 items (5.99 KiB)
+macc                  : 69,016
+weights (ro)          : 6,136 B (5.99 KiB) (1 segment)
+activations (rw)      : 5,116 B (5.00 KiB) (1 segment) *
+ram (total)           : 5,116 B (5.00 KiB) = 5,116 + 0 + 0
+
+(*) input/output buffers can be used from the activations buffer
+
+Model name - IEGM_net_Sf1bz256lr0_01 ['input_1'] ['node_55']
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+id   layer (type,original)                     oshape                 param/size   macc     connected to    |   c_size            c_macc              c_type            
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+17   linear_weight (Placeholder, Gemm)         [h:370,c:2]            740/2,960                             |   +8(+0.3%)         +742(+100.0%)       dense_of32[o][11] 
+     linear_bias (Placeholder, Gemm)           [c:2]                  2/8                                   |   -8(-100.0%)                          
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0    input_1 (Input, )                         [b:1,h:1250,w:1,c:1]                                         |                                        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1    node_38 (Conv2D, Conv)                    [b:1,h:623,w:1,c:2]    14/56        7,478    input_1         |   -56(-100.0%)      -7,478(-100.0%)    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2    node_39 (Nonlinearity, Relu)              [b:1,h:623,w:1,c:2]                 1,246    node_38         |   +56(+100.0%)      +7,478(+600.2%)     conv2d_of32[0]    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3    node_40 (ScaleBias, BatchNormalization)   [b:1,h:623,w:1,c:2]    4/16         2,492    node_39         |                                         bn_of32[1]        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4    node_41 (Conv2D, Conv)                    [b:1,h:310,w:1,c:3]    33/132       9,303    node_40         |   -132(-100.0%)     -9,303(-100.0%)    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5    node_42 (Nonlinearity, Relu)              [b:1,h:310,w:1,c:3]                 930      node_41         |   +132(+100.0%)     +9,303(+1000.3%)    conv2d_of32[2]    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6    node_43 (ScaleBias, BatchNormalization)   [b:1,h:310,w:1,c:3]    6/24         1,860    node_42         |                                         bn_of32[3]        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7    node_44 (Conv2D, Conv)                    [b:1,h:154,w:1,c:5]    65/260       9,245    node_43         |   -260(-100.0%)     -9,245(-100.0%)    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8    node_45 (Nonlinearity, Relu)              [b:1,h:154,w:1,c:5]                 770      node_44         |   +260(+100.0%)     +9,245(+1200.6%)    conv2d_of32[4]    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9    node_46 (ScaleBias, BatchNormalization)   [b:1,h:154,w:1,c:5]    10/40        1,540    node_45         |                                         bn_of32[5]        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10   node_47 (Conv2D, Conv)                    [b:1,h:76,w:1,c:10]    210/840      15,210   node_46         |   -840(-100.0%)     -15,210(-100.0%)   
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11   node_48 (Nonlinearity, Relu)              [b:1,h:76,w:1,c:10]                 760      node_47         |   +840(+100.0%)     +15,210(+2001.3%)   conv2d_of32[6]    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+12   node_49 (ScaleBias, BatchNormalization)   [b:1,h:76,w:1,c:10]    20/80        1,520    node_48         |                                         bn_of32[7]        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+13   node_50 (Conv2D, Conv)                    [b:1,h:37,w:1,c:10]    410/1,640    14,810   node_49         |   -1,640(-100.0%)   -14,810(-100.0%)   
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+14   node_51 (Nonlinearity, Relu)              [b:1,h:37,w:1,c:10]                 370      node_50         |   +1,640(+100.0%)   +14,810(+4002.7%)   conv2d_of32[8]    
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+15   node_52 (ScaleBias, BatchNormalization)   [b:1,h:37,w:1,c:10]    20/80        740      node_51         |                                         bn_of32[9]        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+16   node_54 (Reshape, Reshape)                [b:1,c:370]                                  node_52         |                                         transpose_of32[10]
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+17   node_55 (Gemm, Gemm)                      [b:1,c:2]                           742      node_54         |                     -742(-100.0%)      
+                                                                                            linear_weight   |  
+                                                                                            linear_bias     |  
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+model/c-model: macc=69,016/69,016  weights=6,136/6,136  activations=--/5,116 io=--/0
+
+
+
+Generated C-graph summary
+------------------------------------------------------------------------------------------------------------------------
+model name            : iegm_net_sf1bz256lr0_01
+c-name                : network
+c-node #              : 12
+c-array #             : 35
+activations size      : 5116 (1 segments)
+weights size          : 6136 (1 segments)
+macc                  : 69016
+inputs                : ['input_1_output']
+outputs               : ['node_55_output']
+
+C-Arrays (35)
+------------------------------------------------------------------------------------------------------
+c_id   name (*_array)             item/size   domain/mem-pool           c-type        fmt     comment
+------------------------------------------------------------------------------------------------------
+0      input_1_output             1250/5000   activations/**default**   float         float   /input 
+1      node_38_output             1246/4984   activations/**default**   float         float          
+2      node_40_output             1246/4984   activations/**default**   float         float          
+3      node_41_output             930/3720    activations/**default**   float         float          
+4      node_43_output             930/3720    activations/**default**   float         float          
+5      node_44_output             770/3080    activations/**default**   float         float          
+6      node_46_output             770/3080    activations/**default**   float         float          
+7      node_47_output             760/3040    activations/**default**   float         float          
+8      node_49_output             760/3040    activations/**default**   float         float          
+9      node_50_output             370/1480    activations/**default**   float         float          
+10     node_52_output             370/1480    activations/**default**   float         float          
+11     node_54_to_chlast_output   370/1480    activations/**default**   float         float          
+12     node_55_output             2/8         activations/**default**   float         float   /output
+13     node_38_weights            12/48       weights/weights           const float   float          
+14     node_38_bias               2/8         weights/weights           const float   float          
+15     node_40_scale              2/8         weights/weights           const float   float          
+16     node_40_bias               2/8         weights/weights           const float   float          
+17     node_41_weights            30/120      weights/weights           const float   float          
+18     node_41_bias               3/12        weights/weights           const float   float          
+19     node_43_scale              3/12        weights/weights           const float   float          
+20     node_43_bias               3/12        weights/weights           const float   float          
+21     node_44_weights            60/240      weights/weights           const float   float          
+22     node_44_bias               5/20        weights/weights           const float   float          
+23     node_46_scale              5/20        weights/weights           const float   float          
+24     node_46_bias               5/20        weights/weights           const float   float          
+25     node_47_weights            200/800     weights/weights           const float   float          
+26     node_47_bias               10/40       weights/weights           const float   float          
+27     node_49_scale              10/40       weights/weights           const float   float          
+28     node_49_bias               10/40       weights/weights           const float   float          
+29     node_50_weights            400/1600    weights/weights           const float   float          
+30     node_50_bias               10/40       weights/weights           const float   float          
+31     node_52_scale              10/40       weights/weights           const float   float          
+32     node_52_bias               10/40       weights/weights           const float   float          
+33     node_55_weights            740/2960    weights/weights           const float   float          
+34     node_55_bias               2/8         weights/weights           const float   float          
+------------------------------------------------------------------------------------------------------
+
+C-Layers (12)
+------------------------------------------------------------------------------------------------------------
+c_id   name (*_layer)      id   layer_type   macc    rom    tensors                        shape (array id)
+------------------------------------------------------------------------------------------------------------
+0      node_38             2    conv2d       8724    56     I: input_1_output              (1,1250,1,1) (0)
+                                                            W: node_38_weights             (1,2,6,1) (13)  
+                                                            W: node_38_bias                (1,1,1,2) (14)  
+                                                            O: node_38_output              (1,623,1,2) (1) 
+------------------------------------------------------------------------------------------------------------
+1      node_40             3    bn           2492    16     I: node_38_output              (1,623,1,2) (1) 
+                                                            W: node_40_scale               (1,1,1,2) (15)  
+                                                            W: node_40_bias                (1,1,1,2) (16)  
+                                                            O: node_40_output              (1,623,1,2) (2) 
+------------------------------------------------------------------------------------------------------------
+2      node_41             5    conv2d       10233   132    I: node_40_output              (1,623,1,2) (2) 
+                                                            W: node_41_weights             (2,3,5,1) (17)  
+                                                            W: node_41_bias                (1,1,1,3) (18)  
+                                                            O: node_41_output              (1,310,1,3) (3) 
+------------------------------------------------------------------------------------------------------------
+3      node_43             6    bn           1860    24     I: node_41_output              (1,310,1,3) (3) 
+                                                            W: node_43_scale               (1,1,1,3) (19)  
+                                                            W: node_43_bias                (1,1,1,3) (20)  
+                                                            O: node_43_output              (1,310,1,3) (4) 
+------------------------------------------------------------------------------------------------------------
+4      node_44             8    conv2d       10015   260    I: node_43_output              (1,310,1,3) (4) 
+                                                            W: node_44_weights             (3,5,4,1) (21)  
+                                                            W: node_44_bias                (1,1,1,5) (22)  
+                                                            O: node_44_output              (1,154,1,5) (5) 
+------------------------------------------------------------------------------------------------------------
+5      node_46             9    bn           1540    40     I: node_44_output              (1,154,1,5) (5) 
+                                                            W: node_46_scale               (1,1,1,5) (23)  
+                                                            W: node_46_bias                (1,1,1,5) (24)  
+                                                            O: node_46_output              (1,154,1,5) (6) 
+------------------------------------------------------------------------------------------------------------
+6      node_47             11   conv2d       15970   840    I: node_46_output              (1,154,1,5) (6) 
+                                                            W: node_47_weights             (5,10,4,1) (25) 
+                                                            W: node_47_bias                (1,1,1,10) (26) 
+                                                            O: node_47_output              (1,76,1,10) (7) 
+------------------------------------------------------------------------------------------------------------
+7      node_49             12   bn           1520    80     I: node_47_output              (1,76,1,10) (7) 
+                                                            W: node_49_scale               (1,1,1,10) (27) 
+                                                            W: node_49_bias                (1,1,1,10) (28) 
+                                                            O: node_49_output              (1,76,1,10) (8) 
+------------------------------------------------------------------------------------------------------------
+8      node_50             14   conv2d       15180   1640   I: node_49_output              (1,76,1,10) (8) 
+                                                            W: node_50_weights             (10,10,4,1) (29)
+                                                            W: node_50_bias                (1,1,1,10) (30) 
+                                                            O: node_50_output              (1,37,1,10) (9) 
+------------------------------------------------------------------------------------------------------------
+9      node_52             15   bn           740     80     I: node_50_output              (1,37,1,10) (9) 
+                                                            W: node_52_scale               (1,1,1,10) (31) 
+                                                            W: node_52_bias                (1,1,1,10) (32) 
+                                                            O: node_52_output              (1,37,1,10) (10)
+------------------------------------------------------------------------------------------------------------
+10     node_54_to_chlast   16   transpose    0       0      I: node_52_output              (1,37,1,10) (10)
+                                                            O: node_54_to_chlast_output    (1,10,37,1) (11)
+------------------------------------------------------------------------------------------------------------
+11     node_55             17   dense        742     2968   I: node_54_to_chlast_output0   (1,1,1,370) (11)
+                                                            W: node_55_weights             (370,1,1,2) (33)
+                                                            W: node_55_bias                (1,1,1,2) (34)  
+                                                            O: node_55_output              (1,1,1,2) (12)  
+------------------------------------------------------------------------------------------------------------
+
+
+
+Number of operations per c-layer
+--------------------------------------------------------------------------------------------------------
+c_id    m_id   name (type)                     #op (type)                       #param (sparsity)      
+--------------------------------------------------------------------------------------------------------
+0       2      node_38 (conv2d)                          8,724 (smul_f32_f32)               14 (0.0000)
+1       3      node_40 (bn)                              2,492 (smul_f32_f32)                4 (0.0000)
+2       5      node_41 (conv2d)                         10,233 (smul_f32_f32)               33 (0.0000)
+3       6      node_43 (bn)                              1,860 (smul_f32_f32)                6 (0.0000)
+4       8      node_44 (conv2d)                         10,015 (smul_f32_f32)               65 (0.0000)
+5       9      node_46 (bn)                              1,540 (smul_f32_f32)               10 (0.0000)
+6       11     node_47 (conv2d)                         15,970 (smul_f32_f32)              210 (0.0000)
+7       12     node_49 (bn)                              1,520 (smul_f32_f32)               20 (0.0000)
+8       14     node_50 (conv2d)                         15,180 (smul_f32_f32)              410 (0.0000)
+9       15     node_52 (bn)                                740 (smul_f32_f32)               20 (0.0000)
+10      16     node_54_to_chlast (transpose)                 0 (smul_f32_f32)                          
+11      17     node_55 (dense)                             742 (smul_f32_f32)              742 (0.0000)
+--------------------------------------------------------------------------------------------------------
+total                                                   69,016                           1,534 (0.0000)
+
+  Number of operation types
+  ---------------------------------------------
+  smul_f32_f32              69,016      100.0%
+
+Complexity report (model)
+--------------------------------------------------------------------------------
+m_id   name            c_macc                    c_rom                     c_id
+--------------------------------------------------------------------------------
+17     linear_weight   |                  1.1%   ||||||||||||||||  48.4%   [11]
+2      node_39         |||||||||         12.6%   |                  0.9%   [0] 
+3      node_40         |||                3.6%   |                  0.3%   [1] 
+5      node_42         ||||||||||        14.8%   |                  2.2%   [2] 
+6      node_43         ||                 2.7%   |                  0.4%   [3] 
+8      node_45         ||||||||||        14.5%   ||                 4.2%   [4] 
+9      node_46         ||                 2.2%   |                  0.7%   [5] 
+11     node_48         ||||||||||||||||  23.1%   |||||             13.7%   [6] 
+12     node_49         ||                 2.2%   |                  1.3%   [7] 
+14     node_51         |||||||||||||||   22.0%   |||||||||         26.7%   [8] 
+15     node_52         |                  1.1%   |                  1.3%   [9] 
+16     node_54         |                  0.0%   |                  0.0%   [10]
+--------------------------------------------------------------------------------
+macc=69,016 weights=6,136 act=5,116 ram_io=0
+
+Generated files (7)
+--------------------------------------------------------------------------
+C:\Users\yasin\.stm32cubemx\network_output\network_config.h
+C:\Users\yasin\.stm32cubemx\network_output\network.h
+C:\Users\yasin\.stm32cubemx\network_output\network.c
+C:\Users\yasin\.stm32cubemx\network_output\network_data_params.h
+C:\Users\yasin\.stm32cubemx\network_output\network_data_params.c
+C:\Users\yasin\.stm32cubemx\network_output\network_data.h
+C:\Users\yasin\.stm32cubemx\network_output\network_data.c
