@@ -40,6 +40,10 @@ def main():
     net = IEGMNetSimple5a()
     net = net.float().to(device)
 
+    print(net)
+    for name, W in net.named_parameters():
+        print(name, W.shape)
+
     if has_wandb and args.enable_wandb:
         wandb.watch(net)
 
