@@ -1,6 +1,6 @@
 # Code for TinyML Contest at ICCAD 2022
 
-This is the submission from team **HuskyCSDeepical** to [2022 ACM/IEEE TinyML Design Contest at ICCAD](https://tinymlcontest.github.io/TinyML-Design-Contest/index.html).
+This is the submission from team **HuskyCSDeepical** to [2022 ACM/IEEE TinyML Design Contest at ICCAD](https://tinymlcontest.github.io/TinyML-Design-Contest/index.html). Data can be found [here](https://drive.google.com/file/d/1I_bxfTrfxPP9S4pSp_tTSNFAHLP0vkoI/view?usp=share_link).
 
 ## Folder Structure
 
@@ -15,7 +15,7 @@ This is the submission from team **HuskyCSDeepical** to [2022 ACM/IEEE TinyML De
 
 ### NN Model Design and Training
 
-Detail can be found in **./ModelDesign/run.sh**
+Please find the code in folder **./ModelDesign**
 
 - Requirement
 
@@ -40,6 +40,9 @@ Detail can be found in **./ModelDesign/run.sh**
     ```bash
     python pt2onnx.py IEGM_net_Sf1bz256lr0.01
     ```
+
+Example running process can be found in **./ModelDesign/run.sh**
+
 
 ### Deploy and Validate model on MCU Platform
 
