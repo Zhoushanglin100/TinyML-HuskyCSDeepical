@@ -2,7 +2,7 @@
 
 This is the submission from team **HuskyCSDeepical** to [2022 ACM/IEEE TinyML Design Contest at ICCAD](https://tinymlcontest.github.io/TinyML-Design-Contest/index.html). The algorithm is developed on low-end microcontrollers that detects life-threatening ventricular arrhythmias (VA). Data can be found [here](https://drive.google.com/file/d/1I_bxfTrfxPP9S4pSp_tTSNFAHLP0vkoI/view?usp=share_link).
 
-Our approach won **1st place** in the Detection Accuracy and **4rd** place on the overall score. See the full list of submissions [here](https://tinymlcontest.github.io/TinyML-Design-Contest/Winners.html). 
+Our approach won **1st place** in the Detection Accuracy and **4th** place on the overall score. See the full list of submissions [here](https://tinymlcontest.github.io/TinyML-Design-Contest/Winners.html). 
 
 
 ## Folder Structure
